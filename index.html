@@ -1,6 +1,70 @@
-<html>
-  <head></head>
-  <body style="text-align: center;">
-    <img src="under.jpg" alt="Under Construction Image">
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    
+    <title>Summer Training</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#ec6952">
+    <meta name="description" content="Get Online Summer Training">
+    <meta name="robots" content="index, follow">
+    <link id="theme-style" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" >
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="text-center">
+    <div class="container">
+
+
+<div class="logo">BeWebify</div>
+
+        <h2 class="summer-training">Online Summer Training </h2>
+        <p>Contact us for the online summer training detials to get certified with the cutting edge technologies. </p>
+        
+        <form id="myform" method="post">
+            <input class="form-control" type="text" name="name" placeholder="Your Name" required />
+            <input class="form-control" type="email" name="email" placeholder="Your Email" required />
+            <input class="form-control" type="text" name="phone" placeholder="Your Phone Number" required />
+            <input class="form-control" type="text" name="course" placeholder="Current Course You are doing" required />
+            <button class="btn btn-primary btn-block" type="submit">
+            Register
+            </button>
+        </form>
+    </div>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/email.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+    (function(){
+    emailjs.init("user_6y0y8Ky5ymokLATrPYgwv");
+    })();
+    </script>
+    <script>
+    var myform = $("form#myform");
+    myform.submit(function(event){
+    event.preventDefault();
+    // Change to your service ID, or keep using the default service
+    var service_id = "default_service";
+    var template_id = "template_AnXqhowp";
+    myform.find("button").text("Sending...");
+    emailjs.sendForm(service_id,template_id,"myform")
+    .then(function(){
+    myform.find("button").text("Send");
+    myform[0].reset();
+    }, function(err) {
+    myform.find("button").text("Send");
+    });
+    return false;
+    });
+    </script>
 </body>
 </html>
